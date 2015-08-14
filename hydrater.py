@@ -90,6 +90,7 @@ if __name__ == "__main__":
     for f in files:
         ids = loadIds(f)
         json_f = f + '-hydrated.json'
+        pickled_f = f + '.p'
         removals = []
         for tweet_id in ids:
             t1 = time.time()
@@ -110,4 +111,4 @@ if __name__ == "__main__":
             if len(removals) > 999:
                 remove_tweet_id(removals, f)
                 removals = []
-
+    os.remove(pickled_f)

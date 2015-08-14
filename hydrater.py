@@ -8,8 +8,6 @@ import time
 import json
 import sys
 
-APP_KEY, APP_SECRET = get_keys()
-
 def loadIds(f):
     ids = []
     print '\nLoading IDs from %s...' % f
@@ -79,6 +77,7 @@ if __name__ == "__main__":
     t0 = time.time()
     files = ['yourfilesgohere']
     print '\nAuthorizing with Twitter...'
+    APP_KEY, APP_SECRET = get_keys()
     # building Twitter client
     twitter = Twython(APP_KEY, APP_SECRET, oauth_version=2)
     ACCESS_TOKEN = twitter.obtain_access_token()
